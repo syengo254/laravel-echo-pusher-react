@@ -1,5 +1,6 @@
 <?php
 
+use App\Events\MyEvent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('broadcast');
+});
+
+Route::get('/send', function () {
+    event(new MyEvent('Hello from laravel'));
+
+    return response('event triggered...');
 });

@@ -2,10 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 function App() {
+
+    const triggerEvent = async () => {
+        const resp = await window.axios.get('/send');
+        console.log(await resp.data);
+    };
+
     return (
         <>
             <h1>Hello from reacts</h1>
-            <p>Using echo redis</p>
+            <p>Using echo redis comps.</p>
+
+            <button type='button' onClick={triggerEvent}>Click me to send</button>
         </>
     );
 }

@@ -13,3 +13,9 @@ import './bootstrap';
  */
 
 import './components/App';
+
+window.Echo.channel("my-channel")
+    .listen('.my-event', (e) => {
+        console.log('channel data');
+        console.log(e.message);
+    });
